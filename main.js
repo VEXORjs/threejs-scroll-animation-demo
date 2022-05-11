@@ -70,11 +70,30 @@ const jeffTexture = new THREE.TextureLoader().load('hecker.jpg');
 const jeff = new THREE.Mesh(new THREE.BoxGeometry(3, 3, 3), new THREE.MeshBasicMaterial({ map: jeffTexture }));
 
 scene.add(jeff);
+// Earth
+
+const earthTexture = new THREE.TextureLoader().load('earth.jpg');
+const normalEarthTexture = new THREE.TextureLoader().load('earth-normal.jpg')
+
+const earth = new THREE.Mesh(
+  new THREE.BoxBufferGeometry(10, 22, 11),
+  new THREE.MeshBasicMaterial({
+    map: earthTexture,
+    normalMap: normalEarthTexture,
+  })
+);
+
+scene.add(earth);
+
+earth.position.z = 120;
+earth.position.setX(-30);
+earth.position.setY(-50);
 
 // Moon
 
 const moonTexture = new THREE.TextureLoader().load('moon.jpg');
 const normalTexture = new THREE.TextureLoader().load('normal.jpg');
+
 
 const moon = new THREE.Mesh(
   new THREE.SphereGeometry(3, 32, 32),
